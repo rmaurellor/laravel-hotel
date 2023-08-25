@@ -4,10 +4,21 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\Hotel as HotelResource;
 use App\Models\Hotel;
 
 class HotelController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return new HotelResource(Hotel::first());
+    }
+
     //
     public function get(){
         try { 
